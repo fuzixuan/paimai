@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.accp.dao.IPaimaiDao;
+import com.accp.pojo.User;
 
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, isolation = Isolation.READ_COMMITTED, readOnly = true)
@@ -14,4 +15,7 @@ public class PaimaiBiz {
 	@Autowired
 	private IPaimaiDao dao;
 	
+	public User queryLogin(String username,String usermm) {
+		return dao.queryLogin(username, usermm);
+	}
 }

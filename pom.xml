@@ -5,10 +5,10 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.2.4.RELEASE</version>
+		<version>2.2.5.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.accp.paimai</groupId>
+	<groupId>com.accp</groupId>
 	<artifactId>paimai</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>paimai</name>
@@ -73,6 +73,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>paimai</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
