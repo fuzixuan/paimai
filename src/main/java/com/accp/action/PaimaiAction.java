@@ -8,6 +8,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,6 +22,12 @@ public class PaimaiAction {
 	@Autowired
 	private PaimaiBiz biz;
 	
+	/**
+	 * 登录
+	 * @param username
+	 * @param usermm
+	 * @return
+	 */
 	@GetMapping("login/{username}/{usermm}")
 	public Map<String, Object> queryLogin(@PathVariable String username,@PathVariable String usermm) {
 		Map<String, Object> message=new HashMap<String, Object>();
@@ -29,6 +37,19 @@ public class PaimaiAction {
 		}else {
 			message.put("code", "300");
 		}
+		return message;
+	}
+	/**
+	 * 注册用户
+	 * @param user
+	 * @return
+	 */
+	@PostMapping("user")
+	public Map<String, String> addPersonInfo(@RequestBody User user) {
+		Map<String, String> message = new HashMap<String, String>();
+		biz.addUser(user);
+		message.put("code", "200");
+		message.put("msg", "ok");
 		return message;
 	}
 	

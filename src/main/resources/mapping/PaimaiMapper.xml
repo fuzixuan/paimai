@@ -9,5 +9,73 @@
 	<select id="queryLogin" resultType="User">
 		SELECT * FROM user WHERE username=#{username} AND usermm=#{usermm}
 	</select>
+	
+	<insert id="addUser">
+    	insert into user
+	    <trim prefix="(" suffix=")" suffixOverrides="," >
+	      <if test="userid != null" >
+	        userid,
+	      </if>
+	      <if test="username != null" >
+	        username,
+	      </if>
+	      <if test="usermm != null" >
+	        usermm,
+	      </if>
+	      <if test="usersfz != null" >
+	        usersfz,
+	      </if>
+	      <if test="userdh != null" >
+	        userdh,
+	      </if>
+	      <if test="userdz != null" >
+	        userdz,
+	      </if>
+	      <if test="useryzbh != null" >
+	        useryzbh,
+	      </if>
+	      <if test="usersf != null" >
+	        usersf,
+	      </if>
+	      <if test="userwt != null" >
+	        userwt,
+	      </if>
+	      <if test="userda != null" >
+	        userda,
+	      </if>
+	    </trim>
+	    <trim prefix="values (" suffix=")" suffixOverrides="," >
+	     <if test="userid != null" >
+	        #{userid},
+	      </if>
+	      <if test="username != null" >
+	        #{username},
+	      </if>
+	      <if test="usermm != null" >
+	        #{usermm},
+	      </if>
+	      <if test="usersfz != null" >
+	        #{usersfz},
+	      </if>
+	      <if test="userdh != null" >
+	        #{userdh},
+	      </if>
+	      <if test="userdz != null" >
+	        #{userdz},
+	      </if>
+	      <if test="useryzbh != null" >
+	        #{useryzbh},
+	      </if>
+	      <if test="usersf != null" >
+	        #{usersf},
+	      </if>
+	      <if test="userwt != null" >
+	        #{userwt},
+	      </if>
+	      <if test="userda != null" >
+	        #{userda},
+	      </if>
+	    </trim>
+  </insert>
 
 </mapper>

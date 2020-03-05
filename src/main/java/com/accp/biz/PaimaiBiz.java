@@ -18,4 +18,8 @@ public class PaimaiBiz {
 	public User queryLogin(String username,String usermm) {
 		return dao.queryLogin(username, usermm);
 	}
+	
+	public int addUser(User user) {
+		return dao.addUser(user);
+	}
 }
