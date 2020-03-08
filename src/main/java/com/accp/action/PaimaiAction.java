@@ -1,5 +1,6 @@
 package com.accp.action;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.accp.biz.PaimaiBiz;
+import com.accp.pojo.Pmp;
 import com.accp.pojo.User;
+import com.github.pagehelper.PageInfo;
 
 @RestController
 @RequestMapping("/api/Paimai")
@@ -51,6 +54,13 @@ public class PaimaiAction {
 		message.put("code", "200");
 		message.put("msg", "ok");
 		return message;
+	}
+	
+	
+	@GetMapping("{pmpname}/{pmpms}/{pmpkssj}/{pmpjssj}/{pmpqpj}/{pageNum}/{pageSize}")
+	public PageInfo<Pmp> queryAll(@PathVariable String pmpname,@PathVariable String pmpms,@PathVariable String pmpkssj,
+			@PathVariable String pmpjssj,@PathVariable String pmpqpj,@PathVariable Integer pageNum, @PathVariable Integer pageSize) {
+		return biz.queryAll(pmpname, pmpms, pmpkssj, pmpjssj, pmpqpj, pageNum, pageSize);
 	}
 	
 }

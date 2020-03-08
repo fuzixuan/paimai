@@ -77,5 +77,26 @@
 	      </if>
 	    </trim>
   </insert>
+  
+  <select id="queryAll" resultType="Pmp">
+		select * from pmp
+		<where>
+			<if test="pmpname != null">
+				and pmpname like '%${pmpname}%'
+			</if>
+			<if test="pmpms != null">
+				and pmpms like '%${pmpms}%'
+			</if>
+			<if test="pmpkssj != null">
+				and pmpkssj > #{pmpjssj}
+			</if>
+			<if test="pmpjssj != null">
+				and pmpjssj &lt; #{pmpkssj}
+			</if>
+			<if test="pmpqpj != null">
+				and pmpqpj = ${pmpqpj}
+			</if>
+		</where>
+	</select>
 
 </mapper>

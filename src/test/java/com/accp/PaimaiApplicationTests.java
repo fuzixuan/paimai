@@ -12,8 +12,11 @@ class PaimaiApplicationTests {
 	private PaimaiBiz biz;
 	@Test
 	void contextLoads() {
-		
-		biz.queryLogin("a", "123");
+		try {
+			biz.queryAll(null, null, null, null, null, 1, 4);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 	}
 
