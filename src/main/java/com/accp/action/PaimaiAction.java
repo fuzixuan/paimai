@@ -41,44 +41,6 @@ public class PaimaiAction {
 	private PmpBiz pmpbiz;
 	@Autowired
 	private JlBiz jlbiz;
-	/**
-	 * 登录
-	 * @param username
-	 * @param usermm
-	 * @return
-	 */
-	/**@GetMapping("login/{username}/{usermm}")
-	public Map<String, Object> queryLogin(@PathVariable String username,@PathVariable String usermm) {
-		Map<String, Object> message=new HashMap<String, Object>();
-		User uesr=biz.queryLogin(username, usermm);
-		if (uesr!=null) {
-			message.put("code", "200");
-		}else {
-			message.put("code", "300");
-		}
-		return message;
-	}*/
-	/**
-	 * 注册用户
-	 * @param user
-	 * @return
-	 */
-	/**@PostMapping("user")
-	public Map<String, String> addPersonInfo(@RequestBody User user) {
-		Map<String, String> message = new HashMap<String, String>();
-		biz.addUser(user);
-		message.put("code", "200");
-		message.put("msg", "ok");
-		return message;
-	}*/
-	
-	
-	/**@GetMapping("{pmpname}/{pmpms}/{pmpkssj}/{pmpjssj}/{pmpqpj}/{pageNum}/{pageSize}")
-	public PageInfo<Pmp> queryAll(@PathVariable String pmpname,@PathVariable String pmpms,@PathVariable String pmpkssj,
-			@PathVariable String pmpjssj,@PathVariable String pmpqpj,@PathVariable Integer pageNum, @PathVariable Integer pageSize) {
-		return biz.queryAll(pmpname, pmpms, pmpkssj, pmpjssj, pmpqpj, pageNum, pageSize);
-	}*/
-	
 	
 	//登录
 		@GetMapping("denglu/{username}/{usermm}")
