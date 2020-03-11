@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
+import javax.tools.DocumentationTool.Location;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -78,6 +79,15 @@ public class PaimaiAction {
 		public Object user(HttpSession session) {
 			return session.getAttribute("user");
 		}
+		
+		//用户
+		@GetMapping("outuser")
+		public Object outuser(HttpSession session) {
+			session.removeAttribute("user");
+			session.invalidate();
+			return "";
+		}
+		
 		//拍卖首页
 		@GetMapping("shouye/{n}/{s}/{pmpname}/{pmpms}/{pmpkssj}/{pmpjssj}/{pmpqpj}")
 		public PageInfo<Pmp> shouye(@PathVariable int n,@PathVariable int s,
