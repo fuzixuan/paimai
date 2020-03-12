@@ -80,7 +80,7 @@ public class PaimaiAction {
 			return session.getAttribute("user");
 		}
 		
-		//用户
+		//注销用户
 		@GetMapping("outuser")
 		public Object outuser(HttpSession session) {
 			session.removeAttribute("user");
